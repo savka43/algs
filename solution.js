@@ -11,11 +11,9 @@ function search(index, expression, sum, term) {
 
   const digit = Number(digits[index]);
 
-  // Приписываем цифру к текущему числу, сохраняя его знак.
   const joined = term >= 0 ? term * 10 + digit : term * 10 - digit;
   search(index + 1, expression + digit, sum, joined);
 
-  // Завершаем текущее число и начинаем новое со знаком + или -.
   search(index + 1, expression + '+' + digit, sum + term, digit);
   search(index + 1, expression + '-' + digit, sum + term, -digit);
 }
